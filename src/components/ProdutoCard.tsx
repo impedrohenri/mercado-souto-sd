@@ -1,4 +1,5 @@
-import React from 'react'
+import { useRouter } from 'next/navigation';
+
 
 interface ProdutoCardProps {
     product: Product
@@ -6,8 +7,10 @@ interface ProdutoCardProps {
 
 export default function ProdutoCard({product}: ProdutoCardProps) {
 
+    const router = useRouter();
+
     const onBuy = (product: Product) => {
-        alert(`Produto comprado: ${product.title} por R$ ${product.price.toFixed(2)}`);
+        router.push(`/checkout?productId=${product.id}`);
     }
 
   return (

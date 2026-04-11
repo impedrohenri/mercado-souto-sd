@@ -1,6 +1,4 @@
-import Header from "@/components/Header";
 import ProductGrid from "@/components/ProductGrid";
-import Image from "next/image";
 import Produtos from "@/data/products.js";
 
 export default function Home() {
@@ -8,7 +6,6 @@ export default function Home() {
   
   return (
     <>
-    <Header/>
     <ProductGrid products={Products} />
     </>
   );
