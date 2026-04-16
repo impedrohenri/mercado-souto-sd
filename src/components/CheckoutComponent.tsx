@@ -117,9 +117,9 @@ export default function CheckoutComponent() {
           {/* Botão */}
           <button
             onClick={handleBuy}
-            className="mt-6 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-md text-lg"
+            className="mt-6 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-md text-lg cursor-pointer"
           >
-            Continuar para pagamento
+            Comprar agora
           </button>
 
         </div>
