@@ -3,6 +3,8 @@
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import products from "@/data/products.js";
+import NAMESPACE_URL from "@/api/NameSpace";
+
 
 type Product = {
   id: number;
@@ -27,7 +29,8 @@ export default function CheckoutPage() {
   const total = product.price * quantity;
 
   const handleBuy = async () => {
-    const res = await fetch("/api/create-preference", {
+
+    const res = await fetch(NAMESPACE_URL + "/preference", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -35,11 +38,18 @@ export default function CheckoutPage() {
       body: JSON.stringify({
         title: product.title,
         price: product.price,
-        quantity
+        quantity: quantity
       })
     });
 
     const data = await res.json();
+
+    if (!data.init_point) {
+      console.error("Erro:", data);
+      alert("Erro ao iniciar pagamento");
+
+      return;
+    }
 
     window.location.href = data.init_point;
   };
