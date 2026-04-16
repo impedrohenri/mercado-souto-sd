@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 // Interface definida localmente para evitar o import
@@ -22,7 +23,8 @@ export default function ProdutoCard({ product }: ProdutoCardProps) {
   };
 
   return (
-    <div
+    <Link href={`/checkout?productId=${product.id}`}>
+      <div
       className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-200 hover:border-gray-300 flex flex-col h-full group"
     >
       {/* Container da Imagem */}
@@ -61,5 +63,6 @@ export default function ProdutoCard({ product }: ProdutoCardProps) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
