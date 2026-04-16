@@ -1,0 +1,1 @@
+const publicKey = 'APP_USR-242dd222-01db-4cf6-b3cb-ab40a1da66b2'
